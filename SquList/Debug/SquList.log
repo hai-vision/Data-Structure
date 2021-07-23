@@ -1,0 +1,3 @@
+﻿  SquList.c
+E:\C_repos\DataStructure\SquList\SquList.c(9,49): warning C4133: “=”: 从“SqList *”到“DataType *”的类型不兼容
+  SquList.vcxproj -> E:\C_repos\DataStructure\SquList\Debug\SquList.exe
