@@ -3,26 +3,26 @@
 #include<stdlib.h>
 #include<assert.h>
 typedef int DataType;
-// ½á¹¹ÌåÉùÃ÷
+// ç»“æ„ä½“å£°æ˜
 typedef struct SqList {
 	DataType* data;
-	DataType length;		// µ±Ç°Ë³Ğò±íµÄ³¤¶È
-	DataType capacity;	// Ë³Ğò±íµÄÈİÁ¿
+	DataType length;		// å½“å‰é¡ºåºè¡¨çš„
+	DataType capacity;	// é¡ºåºè¡¨çš„å®¹é‡
 }SqList;
 
-// ³õÊ¼»¯Ë³Ğò±í
+// åˆå§‹åŒ–é¡ºåºè¡¨
 void SquListInit(SqList* ps);
-// Ë³Ğò±íµÄÏú»Ù
+// é¡ºåºè¡¨çš„é”€æ¯
 void SquListDestroy(SqList* ps);
 
-// Ë³ĞòµÄÎ²²åºÍÎ²É¾
+// é¡ºåºçš„å°¾æ’å’Œå°¾åˆ 
 void SquListPush(SqList* ps, DataType x);
 void SquListPop(SqList* ps);
 
-// Ë³Ğò±íµÄÍ·É¾ºÍÍ·²å
+// é¡ºåºè¡¨çš„å¤´åˆ å’Œå¤´æ’
 void SquListPushFront(SqList* ps, DataType x);
 void SquListPopFront(SqList* ps);
 
-// ½á¹û´òÓ¡
+// ç»“æœæ‰“å°
 void SquListPrint(SqList* ps);
 
