@@ -1,0 +1,6 @@
+﻿  Stack.c
+E:\C_repos\DataStructure\Stack\Stack.c(6,51): warning C4133: “=”: 从“Stack *”到“STDatatype *”的类型不兼容
+E:\C_repos\DataStructure\Stack\Stack.c(22,74): warning C4133: “=”: 从“Stack *”到“STDatatype *”的类型不兼容
+E:\C_repos\DataStructure\Stack\Stack.c(31,21): warning C4047: “函数”:“Stack *”与“Stack **”的间接级别不同
+E:\C_repos\DataStructure\Stack\Stack.c(31,18): warning C4024: “StackEmpty”: 形参和实参 1 的类型不同
+  Stack.vcxproj -> E:\C_repos\DataStructure\Stack\Debug\Stack.exe
