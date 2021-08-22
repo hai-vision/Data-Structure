@@ -1,9 +1,9 @@
 #include "QuickSort.h"
 
-// ÈıÊıÈ¡ÖĞ
+// ä¸‰æ•°å–ä¸­
 int GetMid(int* a, int left, int right)
 {
-	int mid = (left + right) >> 1;	// ÒÆÎ»²Ù×÷
+	int mid = (left + right) >> 1;	// ç§»ä½æ“ä½œ
 	if (a[left] > a[mid]) {
 		if (a[left] < a[right]) {
 			return left;
@@ -27,7 +27,7 @@ int GetMid(int* a, int left, int right)
 		}
 	}
 }
-// ½»»»ÔªËØµÄÖµ
+// äº¤æ¢å…ƒç´ çš„å€¼
 void Swap(int* pa, int* pb)
 {
 	int tmp = *pa;
@@ -35,14 +35,14 @@ void Swap(int* pa, int* pb)
 	*pb = tmp;
 }
 
-// Ç°ºóÖ¸Õë·¨
-// ÔÚ±ÕÇø¼ä[left, right]¼ä½øĞĞ£¬¶ÔÊı×é½øĞĞÒ»´Î¿ìÅÅ
-/*	Ëã·¨Ë¼Ïë£º
-	1¡¢ÉèÖÃÇ°ºóÖ¸Õë£ºprev£¬ cur
-	2¡¢ÀûÓÃ¡°ÈıÊıÈ¡ÖĞµÄ·½·¨µÃµ½Ò»¸ö¹Ø¼ü×Ökey£¬²¢½«keyÓëÊı×éµÚÒ»¸öÔªËØÎ»ÖÃ½»»»
-	3¡¢curÏòÓÒÒÆ¶¯ÕÒµ½µÚÒ»¸ö±ÈkeyĞ¡µÄÊı
-	4¡¢++prev£¬½»»»µ±Ç°curÓëprevÖ¸ÏòµÄÔªËØÖµ
-	5¡¢++cur
+// å‰åæŒ‡é’ˆæ³•
+// åœ¨é—­åŒºé—´[left, right]é—´è¿›è¡Œï¼Œå¯¹æ•°ç»„è¿›è¡Œä¸€æ¬¡å¿«æ’
+/*	ç®—æ³•æ€æƒ³ï¼š
+	1ã€è®¾ç½®å‰åæŒ‡é’ˆï¼šprevï¼Œ cur
+	2ã€åˆ©ç”¨â€œä¸‰æ•°å–ä¸­çš„æ–¹æ³•å¾—åˆ°ä¸€ä¸ªå…³é”®å­—keyï¼Œå¹¶å°†keyä¸æ•°ç»„ç¬¬ä¸€ä¸ªå…ƒç´ ä½ç½®äº¤æ¢
+	3ã€curå‘å³ç§»åŠ¨æ‰¾åˆ°ç¬¬ä¸€ä¸ªæ¯”keyå°çš„æ•°
+	4ã€++prevï¼Œäº¤æ¢å½“å‰curä¸prevæŒ‡å‘çš„å…ƒç´ å€¼
+	5ã€++cur
 */
 int PartSort1(int* a, int left, int right)
 {
@@ -50,7 +50,7 @@ int PartSort1(int* a, int left, int right)
 	int cur = prev + 1;
 	int key = prev;
 	int mid = GetMid(a, left, right);
-	// ½«Ê×ÔªËØÓëmidÖ¸ÏòÔªËØµÄÎ»ÖÃ½øĞĞ½»»»
+	// å°†é¦–å…ƒç´ ä¸midæŒ‡å‘å…ƒç´ çš„ä½ç½®è¿›è¡Œäº¤æ¢
 	Swap(&a[key], &a[mid]);
 	while (cur <= right) {
 		if (a[cur] < a[key] && ++prev!= cur) {
@@ -62,17 +62,48 @@ int PartSort1(int* a, int left, int right)
 	return prev;
 
 }
-// ×óÓÒÖ¸Õë·¨
-// ÔÚ±ÕÇø¼ä[left, right]¼ä½øĞĞ£¬¶ÔÊı×é½øĞĞÒ»´Î¿ìÅÅ
+
+// å·¦å³æŒ‡é’ˆæ³•
+// åœ¨é—­åŒºé—´[left, right]é—´è¿›è¡Œï¼Œå¯¹æ•°ç»„è¿›è¡Œä¸€æ¬¡å¿«æ’
 /*
-	
+	ç®—æ³•æ€æƒ³
+	1ã€åˆ†åˆ«è®¾ç½®å·¦å³ä¸¤ä¸ªæŒ‡é’ˆï¼Œbeginã€end
+	2ã€åˆ©ç”¨â€œä¸‰æ•°å–ä¸­â€é€‰æ‹©ä¸­é—´æ•°ä½œä¸ºkeyï¼Œå¹¶ä¸é¦–å…ƒç´ äº¤æ¢ä½ç½®
+	3ã€beginæŒ‡é’ˆå‘å³ç§»æ‰¾åˆ°ç¬¬ä¸€ä¸ªæ¯”keyå¤§çš„æ•°
+	4ã€endæŒ‡é’ˆå‘å·¦ç§»æ‰¾åˆ°ç¬¬ä¸€ä¸ªæ¯”keyå°çš„æ•°
+	5ã€äº¤æ¢ä¸¤ä¸ªæŒ‡é’ˆæ‰€æŒ‡å‘çš„æ•°ç»„å…ƒç´ çš„å€¼
+	6ã€å½“beginä¸endç›¸é‡ï¼Œkeyäº¤æ¢beginæŒ‡å‘çš„å€¼
 */
+int PartSort2(int* a, int left, int right)
+{
+	int begin = left;
+	int end = right;
+	int key = begin;
+	int mid = GetMid(a, left, right);
+	Swap(&a[key], &a[mid]);
+	while (begin < end) {
+		// endå‘å·¦ç§»æ‰¾åˆ°ç¬¬ä¸€ä¸ªæ¯”keyå°çš„æ•°
+		while (begin < end && a[end] >= a[key]) {
+			--end;
+		}
+		// beginå‘å³ç§»åŠ¨ï¼Œæ‰¾åˆ°ç¬¬ä¸€ä¸ªæ¯”keyå¤§çš„æ•°
+		while (begin < end && a[begin] <= a[key]) {
+			++begin;
+		}
+		// æ»¡è¶³ä¸Šè¿°ä¸¤è€…æ¡ä»¶ï¼Œbeginä¸endäº¤æ¢
+		Swap(&a[begin], &a[end]);
+	}
+	// å½“beginä¸endç›¸é‡
+	Swap(&a[key], &a[begin]);
+	return begin;
+}
 void QuickSort(int* a, int left, int right)
 {
 	if (left >= right) {
 		return;
 	}
-	int mid = PartSort1(a, left, right);
+	//int mid = PartSort1(a, left, right);
+	int mid = PartSort2(a, left, right);
 	QuickSort(a, left, mid - 1);
 	QuickSort(a, mid + 1, right);
 }
