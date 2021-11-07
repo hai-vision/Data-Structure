@@ -241,10 +241,19 @@ int DLinkListLength(DListNode* phead)
 }
 
 // 按位序插入
-void DLinkListPushByLocation(DListNode** phead, ElemType x)
+void DLinkListPushByLocation(DListNode** phead, ElemType x, ElemType y)
 {
-
-
-
-
+	// 调用函数，获取对应位序的结点
+	DListNode* cur = DLinkListSearchByLocation((*phead), x);
+	// 调用函数，动态申请一个结点
+	DListNode* newNode = CreateByListNode(y);
+	if (cur) {
+		newNode->next = cur->next;
+		newNode->prev = cur;
+		cur->next->prev = newNode;
+		cur->next = newNode;
+	}
+	else {
+		printf("插入失败\n");
+	}
 }
