@@ -10,22 +10,29 @@ typedef struct DLinkNode
 	struct DLinkNode* next;
 }DListNode;
 
-// ³õÊ¼»¯Ë«ÏòÁ´±í
+// åˆå§‹åŒ–åŒå‘é“¾è¡¨
 void DLinkListInit(DListNode** phead);
-// Ïú»ÙË«ÏòÁ´±í
+// é”€æ¯åŒå‘é“¾è¡¨
 void DLinkListDestroy(DListNode** phead);
-// Î²²å
+// å°¾æ’
 void DLinkListPushBack(DListNode** phead,ElemType x);
-// Î²É¾
+// å°¾åˆ 
 void DLinkListPopBack(DListNode** phead);
-// Í·²å
+// å¤´æ’
 void DLinkListPushFront(DListNode** phead, ElemType x);
-// Í·É¾
+// å¤´åˆ 
 void DLinkListPopFront(DListNode** phead);
-// ¶¯Ì¬ÉêÇëÒ»¸ö½áµã
+// åŠ¨æ€ç”³è¯·ä¸€ä¸ªç»“ç‚¹
 DListNode* CreateByListNode(ElemType x);
-// ±éÀúË«ÏòÁ´±í
+// éå†åŒå‘é“¾è¡¨
 void DListNodePrint(DListNode* phead);
-// °´Î»²éÕÒ
-DListNode* DLinkListSearchByLocation(int x);
+// æŒ‰ä½æŸ¥æ‰¾
+DListNode* DLinkListSearchByLocation(DListNode* phead, int x);
+// æŒ‰å€¼æŸ¥æ‰¾
+DListNode* DLinkListSearchByValue(DListNode* phead, ElemType x);
+// è·å–é“¾è¡¨é•¿åº¦
+int DLinkListLength(DListNode* phead);
+// æŒ‰ä½åºæ’å…¥
+void DLinkListPushByLocation(DListNode** phead, ElemType x);
+
 
