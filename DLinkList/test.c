@@ -1,49 +1,63 @@
 #include "DLinkList.h"
 /**
-	¶ş¼¶Ö¸ÕëÊµÏÖ´øÍ·½áµãµÄË«ÏòÁ´±í
+	äºŒçº§æŒ‡é’ˆå®ç°å¸¦å¤´ç»“ç‚¹çš„åŒå‘é“¾è¡¨
 */
 
 /*
-	×¢ÒâÊÂÏî
-	1¡¢plist ÊÇÊµ²Î£¬c´«¸øDLinkListInit()µÄ²ÎÊıÊÇplistµÄÁÙÊ±¿½±´
-	2¡¢pheadµÄ¸Ä±ä²»»áÓ°ÏìplistµÄ±ä»»£¬Òò´ËĞèÒª´«¶ş¼¶Ö¸Õë£¬¼´plistµÄµØÖ·
+	æ³¨æ„äº‹é¡¹
+	1ã€plist æ˜¯å®å‚ï¼Œcä¼ ç»™DLinkListInit()çš„å‚æ•°æ˜¯plistçš„ä¸´æ—¶æ‹·è´
+	2ã€pheadçš„æ”¹å˜ä¸ä¼šå½±å“plistçš„å˜æ¢ï¼Œå› æ­¤éœ€è¦ä¼ äºŒçº§æŒ‡é’ˆï¼Œå³plistçš„åœ°å€
 
 */
 void test()
 {
-	// ¶¨ÒåÒ»¸ö½á¹¹ÌåÖ¸Õë
+	// å®šä¹‰ä¸€ä¸ªç»“æ„ä½“æŒ‡é’ˆ
 	DListNode* plist = NULL;
 	DLinkListInit(&plist);
-	// Î²²åÔªËØ
+	// å°¾æ’å…ƒç´ 
 	DLinkListPushBack(&plist, 1);
 	DLinkListPushBack(&plist, 2);
 	DLinkListPushBack(&plist, 3);
 	DLinkListPushBack(&plist, 4);
-	// ±éÀúÁ´±íÔªËØ
+	// éå†é“¾è¡¨å…ƒç´ 
 	DListNodePrint(plist);
 
-	// Î²É¾
+
+	// å°¾åˆ 
 	//DLinkListPopBack(&plist);
 	//DLinkListPopBack(&plist);
 	//DLinkListPopBack(&plist);
 	//DLinkListPopBack(&plist);
 	//DLinkListPopBack(&plist);
 
-	// Í·²å
+	// å¤´æ’
 	//DLinkListPushFront(&plist, 5);
 	//DLinkListPushFront(&plist, 6);
 	//DLinkListPushFront(&plist, 7);
 
-	// Í·É¾
+	// å¤´åˆ 
 	//DLinkListPopFront(&plist);
 	//DLinkListPopFront(&plist);
 	//DLinkListPopFront(&plist);
 	//DLinkListPopFront(&plist);
 	//DLinkListPopFront(&plist);
 
-
+	// æŒ‰å€¼æŸ¥æ‰¾
+	//DLinkListSearchByValue(plist, 3);
+	//DListNode* tmp = DLinkListSearchByValue(plist, 3);
+	//if (tmp) {
+	//	printf("%d\n", tmp->data);
+	//}
+	//else {
+	//	printf("è¯¥å€¼ä¸å­˜åœ¨ï¼\n");
+	//}
 
 	//DLinkListDestroy(&plist);
+
+	// è·å–é“¾è¡¨é•¿åº¦
+	//printf("%d\n", DLinkListLength(plist));
+	DListNode* tmp = DLinkListSearchByLocation(plist, 8);
+
 	DListNodePrint(plist);
 }
 
