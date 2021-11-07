@@ -33,6 +33,6 @@ DListNode* DLinkListSearchByValue(DListNode* phead, ElemType x);
 // 获取链表长度
 int DLinkListLength(DListNode* phead);
 // 按位序插入
-void DLinkListPushByLocation(DListNode** phead, ElemType x);
+void DLinkListPushByLocation(DListNode** phead, ElemType x, ElemType y);
 
 
