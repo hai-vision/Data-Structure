@@ -56,7 +56,12 @@ void test()
 
 	// 获取链表长度
 	//printf("%d\n", DLinkListLength(plist));
-	DListNode* tmp = DLinkListSearchByLocation(plist, 8);
+	//DListNode* tmp = DLinkListSearchByLocation(plist, 8);
+
+	// 按位序插入
+	DLinkListPushByLocation(&plist, 3, 0);
+	DLinkListPushByLocation(&plist, 0, -1);
+
 
 	DListNodePrint(plist);
 }
